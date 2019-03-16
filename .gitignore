@@ -1,0 +1,11 @@
+# Lockfiles
+package-lock.json
+
+# Dependency directories
+node_modules/
+
+# Coverage directory used by tools like istanbul
+coverage
+
+dist
+.nyc_output

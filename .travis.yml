@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 'lts/*'
+notifications:
+  email: 
+    - 2419281635@qq.com
+before_script:
+  - npm prune
+script:
+  - npm run cover
+  - npm run check-coverage
+  - npm run build
+after_success:
+  - npm run semantic-release
