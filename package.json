@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test:watch": "npm t -- -w",
-    "test": "mocha src/index.test.js --require babel-register",
-    "cover": "nyc mocha src/*.test.js --require babel-register",
+    "test": "mocha  src/**/*.test.js --require babel-register",
+    "cover": "nyc mocha src/**/*.test.js --require babel-register",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "commit": "npx git-cz",
     "semantic-release": "semantic-release",
