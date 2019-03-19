@@ -1,7 +1,11 @@
 let expect = require('chai').expect;
-import a from './index'
-describe('index', function(){
-    it('should work!', function(){
-        expect(a).to.be.equal(2);
-    });
+import signale from './components/signale/signale';
+import bgLogger from './index';
+describe('index', ()=>{
+    describe('development env',()=>{
+        it('current logger is signale', ()=>{
+            let logger = new bgLogger();
+            expect(logger.logger).to.be.equal(signale);
+        });
+    })
 });
