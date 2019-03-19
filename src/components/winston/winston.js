@@ -2,7 +2,7 @@ import { createLogger, format, transports } from 'winston';
 import 'winston-daily-rotate-file';
 const myFormat = format.printf(({ level, message, label, timestamp }) => {
     return `${timestamp} [${label}] ${level}: ${message}`;
-  });
+});
 const allLoggerTransport = new transports.DailyRotateFile({
     dirname: 'logs/all',
     filename: '%DATE%.log',
@@ -21,7 +21,7 @@ const errorTransport = new transports.File({
 });
 const logger = createLogger({
     format: format.combine(
-        format.label({label: `pid:${process.pid}`}),
+        format.label({ label: `pid:${process.pid}` }),
         format.timestamp(),
         myFormat
     ),
@@ -31,7 +31,7 @@ const logger = createLogger({
     ],
     exceptionHandlers: [
         new transports.File({ filename: 'logs/exceptions.log' })
-      ]
+    ]
 });
 export default {
     info: (arg) => {

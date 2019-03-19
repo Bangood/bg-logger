@@ -1,11 +1,10 @@
 import signale from './components/signale/signale';
 import winston from './components/winston/winston';
-let instance = null;
 
 export default class BgLogger {
     constructor(options = { env: 'development' }) {
-        if (!instance) {
-            instance = this;
+        if (!BgLogger.instance) {
+            BgLogger.instance = this;
         }
         switch (options.env) {
             case 'production':
@@ -15,8 +14,7 @@ export default class BgLogger {
                 this.logger = signale;
                 break;
         }
-
-        return instance;
+        return BgLogger.instance;
     }
     info(arg) {
         this.logger.info(arg);
