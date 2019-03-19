@@ -8,6 +8,7 @@ export default class BgLogger {
         }
         switch (options.env) {
             case 'production':
+                winston.init();
                 this.logger = winston;
                 break;
             default:
